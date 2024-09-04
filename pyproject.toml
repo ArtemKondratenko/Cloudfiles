@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "cloudfiles"
+version = "0.1.0"
+description = ""
+authors = ["Ваше Имя <artem-osteo@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+monitoringparser = { git = "https://github.com/ArtemKondratenko/MonitoringParser.git", branch = "master" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
