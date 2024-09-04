@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 import click
-
+import subprocess
 from monitoringparser.monitoring_list_parser import load, dump
 
 
@@ -47,9 +47,13 @@ def remove(paths):
 def cli():
     pass
 
+def run_other_project():
+    subprocess.run(["python", "/home/tema/PycharmProjects/FileSystemWatcher/FileSystemWatcher/main.py"])
+
 
 cli.add_command(add)
 cli.add_command(remove)
 
 if __name__ == "__main__":
+    run_other_project()
     cli()
