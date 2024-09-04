@@ -1,5 +1,4 @@
 from pathlib import Path
-import signal
 import os
 import click
 

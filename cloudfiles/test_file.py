@@ -1,5 +1,4 @@
-import pytest
-from main import add, remove, MONITORING_LIST
+from cloudfiles.main import add, remove, MONITORING_LIST
 from monitoringparser.monitoring_list_parser import load
 from pathlib import Path
 from click.testing import CliRunner
