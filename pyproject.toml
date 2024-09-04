@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "Сloudfiles"
+name = "cloudfiles"
 version = "0.1.0"
 description = ""
 authors = ["Ваше Имя <artem-osteo@yandex.ru>"]
