@@ -1,2 +1,2 @@
-from .main import MONITORING_LIST
-__all__ = [MONITORING_LIST]
+from .main import MONITORING_LIST, load
+__all__ = [MONITORING_LIST, load]
