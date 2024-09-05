@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 monitoringparser = { git = "https://github.com/ArtemKondratenko/MonitoringParser.git", branch = "master" }
+filesystemwatcher = { git = "https://github.com/ArtemKondratenko/FileSystemWatcher.git", branch = "master" }
 
 [build-system]
 requires = ["poetry-core"]

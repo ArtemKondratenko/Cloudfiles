@@ -1,8 +1,11 @@
+import threading
 from pathlib import Path
 import os
 import click
 import subprocess
 from monitoringparser.monitoring_list_parser import load, dump
+from filesystemwatcher.main import run
+from filesystemwatcher.daemon_control import stop
 
 
 
@@ -47,13 +50,27 @@ def remove(paths):
 def cli():
     pass
 
-def run_other_project():
-    subprocess.run(["python", "/home/tema/PycharmProjects/FileSystemWatcher/FileSystemWatcher/main.py"])
+# def run_other_project():
+#     env = os.environ.copy()
+#     env["PYTHONPATH"] = "/home/tema/PycharmProjects/Cloudfiles"
+#     subprocess.Popen(["python", "/home/tema/PycharmProjects/FileSystemWatcher/FileSystemWatcher/main.py"], env=env)
 
 
 cli.add_command(add)
 cli.add_command(remove)
 
 if __name__ == "__main__":
-    run_other_project()
-    cli()
+    # Создание директории и файла, если они не существуют
+    os.makedirs(MONITORING_LIST.parent, exist_ok=True)
+    if not MONITORING_LIST.exists():
+        with open(MONITORING_LIST, 'w') as f:
+            pass  # Создание пустого файла
+
+    daemon_thread = threading.Thread(target=run, args=(MONITORING_LIST,))
+    daemon_thread.start()
+
+    try:
+        cli()  # Запуск командной строки
+    finally:
+        stop()  # Остановка демона при завершении
+        daemon_thread.join()  # Ждем завершения потока демона
